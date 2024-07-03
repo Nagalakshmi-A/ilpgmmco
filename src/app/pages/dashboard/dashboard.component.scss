@@ -60,6 +60,12 @@
     z-index: 3;
 }
 
+.hist-web {
+    display: block;
+}
+.hist-mbl {
+    display: none;
+}
 .horizontal-1 {
     position: absolute;
     width: .1vw;
@@ -519,6 +525,14 @@ input {
 }
   @media only screen and (max-width : 767px) {
 
+    .hist-web {
+        display: none;
+    }
+
+    .hist-mbl {
+        display: block;
+    }
+
     .dashboard-container {
         position: relative;
         width: 100vw;
@@ -848,7 +862,6 @@ input {
 
     .table-container {
         width: 100vw;
-        display: block;
         overflow-x: auto;
         position: absolute;
         left: 1vw;

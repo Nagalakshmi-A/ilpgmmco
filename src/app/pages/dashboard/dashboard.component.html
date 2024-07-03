@@ -148,8 +148,36 @@
           <td></td>
         </tr>
       </tbody>
-    </table></div>  
-    <div class="card-outer-container" *ngIf="!isTableView">
+    </table></div> 
+    <div *ngIf="!isTableView" class="table-container hist-web"><table>
+      <thead>
+        <tr>
+          <th>Course Name
+            </th>
+          <th>Status</th>
+          <th>Score</th>
+          <th>Date of Completion</th>
+          <th>Year of Completion</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let course of filteredHistory">
+          <td>{{ course.coursename }}</td>
+          <td>{{ course.status }}</td>
+          <td>{{ course.score }}</td>
+          <td>{{ course.date | date: 'dd/MM/yyyy' }}</td>
+          <td>{{ course.year }}</td>
+        </tr>
+        <tr>
+          <td>{{(filteredHistory.length == 0?'Courses Not Available':'')}}</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table></div>   
+    <div class="card-outer-container hist-mbl" *ngIf="!isTableView">
       <div *ngFor="let course of filteredHistory" class="card-container">
         <div class="course-desc">Course Name - <span class="course-val">{{ course.coursename }}</span></div>
         <div class="course-desc">Status - <span class="course-val">{{ course.status }}</span></div>
