@@ -34,11 +34,19 @@ export class LoginComponent implements OnInit {
         this.dataService.isLoggedIn = true;
         this.router.navigate(['dashboard']);
       } else {
-        this.invalidLogin = true;
-        const timeout = setTimeout(() => {
-          this.invalidLogin = false;
-        }, 3000);
+        this.showError();
       } 
+    },
+    (error:any) => {
+      this.errorMsg = "Employee Database not available!";
+      this.showError();
     });
+  }
+
+  showError() {
+    this.invalidLogin = true;
+    const timeout = setTimeout(() => {
+      this.invalidLogin = false;
+    }, 3000);
   }
 }
