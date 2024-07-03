@@ -25,18 +25,20 @@ export class LoginComponent implements OnInit {
     })
   }
   onFormSubmit() {
-    console.log(this.loginForm.value);
-    const loginResult = this.dataService.setEmployeeData((this.loginForm.value['empid']).replace(/^GMM/i, ''));
-    this.errorMsg = loginResult.status;
-    if(loginResult.state == true) {
-      this.dataService.isLoggedIn = true;
-      this.router.navigate(['dashboard']);
-    } else {
-      this.invalidLogin = true;
-      const timeout = setTimeout(() => {
-        this.invalidLogin = false;
-      }, 3000);
-    }
-
+    this.dataService.getJSON().subscribe((response: any) => {
+      this.dataService.isDataLoaded = true;
+      console.log(this.loginForm.value);
+      const loginResult = this.dataService.setEmployeeData((this.loginForm.value['empid']).replace(/^GMM/i, ''));
+      this.errorMsg = loginResult.status;
+      if(loginResult.state == true) {
+        this.dataService.isLoggedIn = true;
+        this.router.navigate(['dashboard']);
+      } else {
+        this.invalidLogin = true;
+        const timeout = setTimeout(() => {
+          this.invalidLogin = false;
+        }, 3000);
+      } 
+    });
   }
 }

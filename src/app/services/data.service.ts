@@ -7,6 +7,7 @@ import { filter, map, tap} from 'rxjs/operators';
   providedIn: 'root'
 })
 export class DataService {
+  isDataLoaded = false;
   isLoggedIn = false;
   empIdArray = [];
   dbDumpJSONArray:any;

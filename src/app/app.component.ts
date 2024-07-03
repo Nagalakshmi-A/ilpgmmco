@@ -15,8 +15,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.dataService.getJSON().subscribe((response: any) => {
-      this.router.navigate(['login']);     
-    })
+    this.router.navigate(['login']);  
+    
   }
 }
