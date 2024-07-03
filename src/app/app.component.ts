@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'curriculum-app';
+  title = 'ILP GMMCO';
   
   constructor(public dataService: DataService, public router: Router) {
 
